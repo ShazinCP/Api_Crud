@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_api/controller/addtodo_provider.dart';
-import 'package:todo_api/controller/todolist_provider.dart';
-import 'package:todo_api/view/todo_list.dart';
+import 'package:todo_api/controller/todo_provider.dart';
+import 'package:todo_api/view/todo_list/todo_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +15,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => AddTodoProvider(),
-        ),
-         ChangeNotifierProvider(
-          create: (context) => TodoListProvider(),
+          create: (context) => TodoProvider(),
         ),
       ],
       child: MaterialApp(
