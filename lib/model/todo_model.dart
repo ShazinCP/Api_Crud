@@ -1,29 +1,16 @@
-class TodoModel {
-  String? id;
-  String? title;
-  String? description;
-  bool? isCompleted;
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'todo_model.freezed.dart';
+part 'todo_model.g.dart';
 
-  TodoModel(
-      {this.id,
-      required this.title,
-      required this.description,
-      required this.isCompleted});
+@freezed
+class TodoModel with _$TodoModel {
+  const factory TodoModel({
+    @JsonKey(name: "_id") String? id,
+    String? title,
+    String? description,
+    @JsonKey(name: "is_completed") bool? isCompleted,
+  }) = _TodoModel;
 
-  factory TodoModel.fromJson(Map<String, dynamic> json) {
-    return TodoModel(
-      id: json['_id'],
-      title: json['title'],
-      description: json['description'],
-      isCompleted: json['is_completed'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'title': title,
-      'description': description,
-      'is_completed': isCompleted,
-    };
-  }
+  factory TodoModel.fromJson(Map<String, dynamic> json) =>
+      _$TodoModelFromJson(json);
 }

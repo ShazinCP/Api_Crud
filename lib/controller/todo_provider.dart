@@ -56,12 +56,12 @@ class TodoProvider extends ChangeNotifier {
     }
   }
 
-    void setLoading(bool value) {
+  void setLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-    void isEditValueChange(bool value){
-    isEdit=value;
+  void isEditValueChange(bool value) {
+    isEdit = value;
   }
 }
